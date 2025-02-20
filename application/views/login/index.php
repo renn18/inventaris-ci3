@@ -1,108 +1,82 @@
-<div class="container">
+<section class="gradient-form" style="background-color: #eee; height: 100vh;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-12">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
 
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-        <div class="col-xl-10 col-lg-12 col-md-9">
-
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                    <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                            <div class="p-5">
-                            <br>
-                            <div class="judul">
-                                <center>
-                                    <img width="150px" src="<?= base_url() ?>assets/icon/box.png" alt="">
-                                </center>
-                            </div>
-                                <br>
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                                <div class="judul">
-                                    <hr class="bg-white">
-                                    <br>
-                                    <div class="text-center">
-                                        <h1 class="h2 text-white mb-4"><b>APLIKASI</b></h1>
-                                    </div>
-                                    <div class="text-center">
-                                        <h1 class="h3 text-white mb-4">INVENTORY BARANG</h1>
-                                    </div>
-                                    <hr class="bg-white">
+                                <div class="text-center">
+                                    <h2>Hostnet Inventory</h2>
+                                    <h4 class="mt-1 mb-5 pb-1">Aplikasi Manajemen Inventarisasi</h4>
                                 </div>
 
+                                <form>
+                                    <p>Masuk ke Akun anda</p>
+
+                                    <div data-mdb-input-init class="form-outline mb-4">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="user" name="user" aria-describedby="usernameHelp"
+                                            placeholder="Username" autocomplete="off" />
+                                        <label class="form-label" for="form2Example11">Username</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline mb-4">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="pwd" name="pwd" placeholder="Password" />
+                                        <label class="form-label" for="form2Example22">Password</label>
+                                    </div>
+
+                                    <div class="text-center pt-1 mb-5 pb-1">
+                                        <button onclick="proses_login()" id="login" data-mdb-ripple-init class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log
+                                            in</button>
+                                        <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
+                                    </div>
+
+                                    <!-- <div class="d-flex align-items-center justify-content-center pb-4">
+                                        <p class="mb-0 mr-2">Don't have an account?</p>
+                                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger">Create new</button>
+                                    </div> -->
+
+                                </form>
 
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Login</h1>
-                                </div>
-                                <form class="user">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user"
-                                            id="user" name="user" aria-describedby="usernameHelp"
-                                            placeholder="Username" autocomplete="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="pwd" name="pwd" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <br>
-                                        <hr>
-                                    </div>
-                                    <a href="#" onclick="proses_login()" id="login"
-                                        class="btn btn-primary btn-user btn-block shadow">
-                                        Login
-                                    </a>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
+                        <div class="col-lg-6 d-flex align-items-center gradient-custom-2" style="background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));">
+                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <h4 class="mb-4">Hostnet Inventory</h4>
+                                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+</section>
 
-</div>
 
 
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/login.js"></script>
-<?php if($this->session->flashdata('Pesan')): ?>
-<?= $this->session->flashdata('Pesan'); ?>
-<?php else: ?>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
-        
-    })
-});
+        let timerInterval
+        Swal.fire({
+            title: 'Memuat...',
+            timer: 1000,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+
+        })
+    });
 </script>
-<?php endif; ?>

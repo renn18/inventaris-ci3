@@ -32,27 +32,28 @@
                             </tr>
                         </thead>
                         <tbody id="tbody">
-                            <?php $no=1; foreach ($supplier as $s) { ?>
-                            <tr>
-                                <td><?= $no++ ?>.</td>
-                                <td><?= $s->id_supplier ?></td>
-                                <td><?= $s->nama_supplier ?></td>
-                                <td><?= $s->notelp ?></td>
-                                <td><?= $s->alamat ?></td>
-                                <td>
-                                    <center>
-                                        <a href="#" data-toggle="modal" data-target="#formU"
-                                            onclick="ambilData('<?= $s->id_supplier ?>')"
-                                            class="btn btn-circle btn-success btn-sm">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a href="#" onclick="konfirmasi('<?= $s->id_supplier ?>')"
-                                            class="btn btn-circle btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </center>
-                                </td>
-                            </tr>
+                            <?php $no = 1;
+                            foreach ($supplier as $s) { ?>
+                                <tr>
+                                    <td><?= $no++ ?>.</td>
+                                    <td><?= $s->id_supplier ?></td>
+                                    <td><?= $s->nama_supplier ?></td>
+                                    <td><?= $s->notelp ?></td>
+                                    <td><?= $s->alamat ?></td>
+                                    <td>
+                                        <center>
+                                            <a href="#" data-toggle="modal" data-target="#formU"
+                                                onclick="ambilData('<?= $s->id_supplier ?>')"
+                                                class="btn btn-circle btn-success btn-sm">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                            <a href="#" onclick="konfirmasi('<?= $s->id_supplier ?>')"
+                                                class="btn btn-circle btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </center>
+                                    </td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>
@@ -180,24 +181,21 @@
 <script src="<?= base_url(); ?>assets/js/supplier.js"></script>
 <script src="<?= base_url(); ?>assets/js/validasi/formsupplier.js"></script>
 
-<?php if($this->session->flashdata('Pesan')): ?>
-<?= $this->session->flashdata('Pesan') ?>
-<?php else: ?>
-<script>
-$(document).ready(function() {
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
 
-    })
-});
+<script>
+    $(document).ready(function() {
+        let timerInterval
+        Swal.fire({
+            title: 'Memuat...',
+            timer: 1000,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+
+        })
+    });
 </script>
-<?php endif; ?>

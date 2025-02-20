@@ -30,35 +30,36 @@
                             </tr>
                         </thead>
                         <tbody id="tbody">
-                            <?php $no=1; foreach ($satuan as $s) { ?>
-                            <tr>
-                                <td><?= $no++ ?>.</td>
-                                <td>
-                                    <?php if($s->nama_satuan == ''): ?>
-                                    <i> (Tidak diisi) </i>
-                                    <?php else: ?>
-                                    <?= $s->nama_satuan ?>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?php if($s->ket == ''): ?>
-                                    <i> (Tidak diisi) </i>
-                                    <?php else: ?>
-                                    <?= $s->ket ?>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <a href="#" data-toggle="modal" data-target="#formU"
-                                        onclick="ambilData('<?= $s->id_satuan ?>')"
-                                        class="btn btn-circle btn-success btn-sm">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
-                                    <a href="#" onclick="konfirmasi('<?= $s->id_satuan ?>')"
-                                        class="btn btn-circle btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php $no = 1;
+                            foreach ($satuan as $s) { ?>
+                                <tr>
+                                    <td><?= $no++ ?>.</td>
+                                    <td>
+                                        <?php if ($s->nama_satuan == ''): ?>
+                                            <i> (Tidak diisi) </i>
+                                        <?php else: ?>
+                                            <?= $s->nama_satuan ?>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($s->ket == ''): ?>
+                                            <i> (Tidak diisi) </i>
+                                        <?php else: ?>
+                                            <?= $s->ket ?>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <a href="#" data-toggle="modal" data-target="#formU"
+                                            onclick="ambilData('<?= $s->id_satuan ?>')"
+                                            class="btn btn-circle btn-success btn-sm">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        <a href="#" onclick="konfirmasi('<?= $s->id_satuan ?>')"
+                                            class="btn btn-circle btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>
@@ -172,24 +173,20 @@
 <script src="<?= base_url(); ?>assets/js/satuan.js"></script>
 <script src="<?= base_url(); ?>assets/js/validasi/formsatuan.js"></script>
 
-<?php if($this->session->flashdata('Pesan')): ?>
-<?= $this->session->flashdata('Pesan') ?>
-<?php else: ?>
 <script>
-$(document).ready(function() {
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
+    $(document).ready(function() {
+        let timerInterval
+        Swal.fire({
+            title: 'Memuat...',
+            timer: 1000,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
 
-    })
-});
+        })
+    });
 </script>
-<?php endif; ?>

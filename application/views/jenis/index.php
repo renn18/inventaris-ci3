@@ -30,35 +30,36 @@
                             </tr>
                         </thead>
                         <tbody id="tbody">
-                            <?php $no=1; foreach ($jenis as $j) { ?>
-                            <tr>
-                                <td><?= $no++ ?>.</td>
-                                <td>
-                                    <?php if($j->nama_jenis == ''): ?>
-                                    <i> (Tidak diisi) </i>
-                                    <?php else: ?>
-                                    <?= $j->nama_jenis ?>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?php if($j->ket == ''): ?>
-                                    <i> (Tidak diisi) </i>
-                                    <?php else: ?>
-                                    <?= $j->ket ?>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <a href="#" data-toggle="modal" data-target="#formU"
-                                        onclick="ambilData('<?= $j->id_jenis ?>')"
-                                        class="btn btn-circle btn-success btn-sm">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
-                                    <a href="#" onclick="konfirmasi('<?= $j->id_jenis ?>')"
-                                        class="btn btn-circle btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php $no = 1;
+                            foreach ($jenis as $j) { ?>
+                                <tr>
+                                    <td><?= $no++ ?>.</td>
+                                    <td>
+                                        <?php if ($j->nama_jenis == ''): ?>
+                                            <i> (Tidak diisi) </i>
+                                        <?php else: ?>
+                                            <?= $j->nama_jenis ?>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($j->ket == ''): ?>
+                                            <i> (Tidak diisi) </i>
+                                        <?php else: ?>
+                                            <?= $j->ket ?>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <a href="#" data-toggle="modal" data-target="#formU"
+                                            onclick="ambilData('<?= $j->id_jenis ?>')"
+                                            class="btn btn-circle btn-success btn-sm">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        <a href="#" onclick="konfirmasi('<?= $j->id_jenis ?>')"
+                                            class="btn btn-circle btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>
@@ -171,25 +172,20 @@
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/jenis.js"></script>
 <script src="<?= base_url(); ?>assets/js/validasi/formjenis.js"></script>
-
-<?php if($this->session->flashdata('Pesan')): ?>
-<?= $this->session->flashdata('Pesan') ?>
-<?php else: ?>
 <script>
-$(document).ready(function() {
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
+    $(document).ready(function() {
+        let timerInterval
+        Swal.fire({
+            title: 'Memuat...',
+            timer: 1000,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
 
-    })
-});
+        })
+    });
 </script>
-<?php endif; ?>

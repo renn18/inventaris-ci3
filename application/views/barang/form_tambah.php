@@ -36,58 +36,73 @@
                                 <input class="form-control" name="barang" type="text" placeholder="">
                             </div>
 
+
                             <!-- Stok -->
                             <div class="form-group"><label>Stok Awal</label>
                                 <input class="form-control" name="stok" type="number" placeholder="">
                             </div>
 
-                            <!-- jenis -->
-                            <?php if($jmlJenis > 0): ?>
-                            <div class="form-group"><label>Jenis Barang</label>
-                                <select name="jenis" class="form-control chosen">
+                            <!-- Nama Barang -->
+                            <div class="form-group"><label>Kondisi Barang</label>
+                                <select class="form-control" name="kondisi" type="text" placeholder="">
                                     <option value="">--Pilih--</option>
-                                    <?php foreach($jenis as $j): ?>
-                                    <option value="<?= $j->id_jenis ?>"><?= $j->nama_jenis ?></option>
-                                    <?php endforeach ?>
+                                    <option value="baru">Baru</option>
+                                    <option value="bekas">Bekas</option>
                                 </select>
                             </div>
-                            <?php else: ?>
-                            <div class="form-group"><label>Jenis Barang</label>
-                                <input type="hidden" name="jenis">
-                                <div class="d-sm-flex justify-content-between">
-                                    <span class="text-danger"><i>(Belum Ada Data Jenis!)</i></span>
-                                    <a href="<?= base_url() ?>jenis" class="btn btn-sm btn-primary btn-icon-split">
-                                        <span class="icon text-white">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                    </a>
+
+                            <!-- jenis -->
+                            <?php if ($jmlJenis > 0): ?>
+                                <div class="form-group"><label>Jenis Barang</label>
+                                    <select name="jenis" class="form-control chosen">
+                                        <option value="">--Pilih--</option>
+                                        <?php foreach ($jenis as $j): ?>
+                                            <option value="<?= $j->id_jenis ?>"><?= $j->nama_jenis ?></option>
+                                        <?php endforeach ?>
+                                    </select>
                                 </div>
-                            </div>
+                            <?php else: ?>
+                                <div class="form-group"><label>Jenis Barang</label>
+                                    <input type="hidden" name="jenis">
+                                    <div class="d-sm-flex justify-content-between">
+                                        <span class="text-danger"><i>(Belum Ada Data Jenis!)</i></span>
+                                        <a href="<?= base_url() ?>jenis" class="btn btn-sm btn-primary btn-icon-split">
+                                            <span class="icon text-white">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
                             <?php endif; ?>
 
-                             <!-- Satuan -->
-                             <?php if($jmlSatuan > 0): ?>
-                            <div class="form-group"><label>Satuan Barang</label>
-                                <select name="satuan" class="form-control chosen">
-                                    <option value="">--Pilih--</option>
-                                    <?php foreach($satuan as $s): ?>
-                                    <option value="<?= $s->id_satuan ?>"><?= $s->nama_satuan ?></option>
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                            <?php else: ?>
-                            <div class="form-group"><label>Satuan Barang</label>
-                                <input type="hidden" name="satuan">
-                                <div class="d-sm-flex justify-content-between">
-                                    <span class="text-danger"><i>(Belum Ada Data Satuan!)</i></span>
-                                    <a href="<?= base_url() ?>satuan" class="btn btn-sm btn-primary btn-icon-split">
-                                        <span class="icon text-white">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                    </a>
+                            <!-- Satuan -->
+                            <?php if ($jmlSatuan > 0): ?>
+                                <div class="form-group"><label>Satuan Barang</label>
+                                    <select name="satuan" class="form-control chosen">
+                                        <option value="">--Pilih--</option>
+                                        <?php foreach ($satuan as $s): ?>
+                                            <option value="<?= $s->id_satuan ?>"><?= $s->nama_satuan ?></option>
+                                        <?php endforeach ?>
+                                    </select>
                                 </div>
-                            </div>
+                            <?php else: ?>
+                                <div class="form-group"><label>Satuan Barang</label>
+                                    <input type="hidden" name="satuan">
+                                    <div class="d-sm-flex justify-content-between">
+                                        <span class="text-danger"><i>(Belum Ada Data Satuan!)</i></span>
+                                        <a href="<?= base_url() ?>satuan" class="btn btn-sm btn-primary btn-icon-split">
+                                            <span class="icon text-white">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
                             <?php endif; ?>
+
+                            <!-- Lokasi Barang -->
+                            <div class="form-group"><label>Lokasi Barang</label>
+                                <input class="form-control" name="lokasi" type="text" placeholder="">
+                            </div>
 
                         </div>
 
@@ -149,31 +164,27 @@
 <script src="<?= base_url(); ?>assets/plugin/chosen/chosen.jquery.min.js"></script>
 
 <script>
-$('.chosen').chosen({
-    width: '100%',
+    $('.chosen').chosen({
+        width: '100%',
 
-});
+    });
 </script>
 
-<?php if($this->session->flashdata('Pesan')): ?>
-
-<?php else: ?>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
+        let timerInterval
+        Swal.fire({
+            title: 'Memuat...',
+            timer: 1000,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
 
-    })
-});
+        })
+    });
 </script>
-<?php endif; ?>

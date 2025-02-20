@@ -98,35 +98,32 @@
 <script src="<?= base_url(); ?>assets/plugin/datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
 <script>
-$('#datepicker1').datepicker({
-    autoclose: true,
-    format: 'yyyy-mm-dd',
-});
+    $('#datepicker1').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd',
+    });
 
-$('#datepicker2').datepicker({
-    autoclose: true,
-    format: 'yyyy-mm-dd',
-});
+    $('#datepicker2').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd',
+    });
 </script>
 
-<?php if($this->session->flashdata('Pesan')): ?>
-<?= $this->session->flashdata('Pesan') ?>
-<?php else: ?>
+
 <script>
-$(document).ready(function() {
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
+    $(document).ready(function() {
+        let timerInterval
+        Swal.fire({
+            title: 'Memuat...',
+            timer: 1000,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
 
-    })
-});
+        })
+    });
 </script>
-<?php endif; ?>

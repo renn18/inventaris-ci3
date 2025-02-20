@@ -44,12 +44,12 @@
 
                             <!-- NO Telepon -->
                             <div class="form-group"><label>Nomor Telepon</label>
-                                <input class="form-control" name="notelp" type="number" >
+                                <input class="form-control" name="notelp" type="number">
                             </div>
 
                             <!-- Email -->
                             <div class="form-group"><label>Email</label>
-                                <input class="form-control" name="email" type="email" >
+                                <input class="form-control" name="email" type="email">
                             </div>
 
                             <!-- Level -->
@@ -57,19 +57,18 @@
                                 <select name="level" class="form-control">
                                     <option value="">--Pilih--</option>
                                     <option value="admin">Admin</option>
-                                    <option value="manajer">Manajer</option>
-                                    <option value="gudang">Gudang</option>
+                                    <option value="user">User</option>
                                 </select>
                             </div>
 
                             <!-- Password -->
                             <div class="form-group"><label>Password</label>
-                                <input class="form-control" name="pwd" type="password" >
+                                <input class="form-control" name="pwd" type="password">
                             </div>
 
                             <!-- Konfirmasi Password -->
                             <div class="form-group"><label>Konfirmasi Password</label>
-                                <input class="form-control" name="kpwd" type="password" >
+                                <input class="form-control" name="kpwd" type="password">
                             </div>
 
                         </div>
@@ -129,25 +128,21 @@
 <script src="<?= base_url(); ?>assets/js/pengguna.js"></script>
 <script src="<?= base_url(); ?>assets/js/validasi/formuser.js"></script>
 
-<?php if($this->session->flashdata('Pesan')): ?>
-
-<?php else: ?>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 
-    let timerInterval
-    Swal.fire({
-        title: 'Memuat...',
-        timer: 1000,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
+        let timerInterval
+        Swal.fire({
+            title: 'Memuat...',
+            timer: 1000,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
 
-    })
-});
+        })
+    });
 </script>
-<?php endif; ?>
